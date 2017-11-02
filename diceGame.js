@@ -1,11 +1,11 @@
 "Use Strictly"
 function runGame (){
+	let win1v1Roll = rollLvl1vs1(rollLvl1);
 	let d4 = rollLvl1();
 	let d6 = rollLvl2();
 	let d8 = rollLvl3();
 	let d12 = rollLvl4();
 	let d20 = rollLvl5();
-	// let win1v1Roll = rollLvl1vs1(d4,);
 function rollLvl1(){ 
 	let d4 = (Math.floor(Math.random() * 4) + 1); {
 				if (d4 === 2 || d4 === 3){
@@ -79,16 +79,27 @@ function rollLvl5(){
 			return d20
 			}
 	}	
-function rollLvl1vs1(yourlvl1Roll, opLvl1Roll){
-	let win1v1Roll=true
-		if (yourLvl1Roll > opLvl1Roll){
-			win1v1Roll === false
-		} else if (yourLvl1Roll < opLvl1Roll) {
-			win1v1Roll === true
+function rollLvl1vs1(d4Roll){
+	let yourLvl1Roll=d4Roll()
+	let opLvl1Roll= d4Roll()
+			let win1v1Roll=true;{
+				if (yourLvl1Roll<opLvl1Roll){ 
+					win1v1Roll = false;{
+						console.log("You've been defeated!")
+					} 
+				}
+				else if (yourLvl1Roll===opLvl1Roll){
+					win1v1Roll=false;{
+						console.log("Your powers match! Try again")
+					}
+				}
+				else {
+					console.log("You're on to the next Level!")
+				}
+			}
+	}
 
-		}
 } 	
-}
 // function rollLvl1vs2(){
 
 // }
