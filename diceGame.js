@@ -1,17 +1,18 @@
 "Use Strictly"
+function runEntireGame(){
+
 function roundLvl1vs1(){
 	let yourLvl1Roll=rollLvl1();
 	let opLvl1Roll= rollLvl1();
-		let win1v1Roll=true;{
+		let win1vs1Roll=true;{
 			if (yourLvl1Roll<opLvl1Roll){ 
-				win1v1Roll = false;{
+				win1vs1Roll = false;{
 					alert("You've been defeated!");{
 						roundLvl1vs2()}
-
 					}
 			} 
 			else if (yourLvl1Roll===opLvl1Roll){
-				win1v1Roll=false;{
+				win1vs1Roll=false;{
 					confirm("Your powers match! Try again?");{
 						roundLvl1vs1()}
 					}
@@ -21,25 +22,26 @@ function roundLvl1vs1(){
 					wonToNextRound()}
 				}
 			}
+		}
 function roundLvl1vs2(){
 	let yourLvl1Roll=rollLvl1();
-	let opLvl2Roll = rollLvl2();
-		let win1v2Roll= true; {
+	let opLvl2Roll= rollLvl2();
+		let win1vs2Roll= true; {
 			alert ("Your opponent is only stlightly stronger, prepare yourself!")
 				if (yourLvl1Roll < opLvl2Roll){
-					win1v2Roll=false;{
+					win1vs2Roll=false;{
 						alert ("You've been defeated!");{
-							lostToNextRound()
+							roundLvl1vs3()
 						}
 					}
 				}
-				else { choiceAfterWinningLvl1v2();
+				else { choiceAfterWinningLvl1vs2();
 							}
 			}	
 		}
-function choiceAfterWinningLvl1v2(){
-	let winningLvl1v2Answer = prompt("You're on to the next level!", "Type S to strengthen yourself or W to weaken your opponent.");
-						switch (winningLvl1v2Answer){
+function choiceAfterWinningLvl1vs2(){
+	let winningLvl1vs2Answer = prompt("You're on to the next level!", "Type S to strengthen yourself or W to weaken your opponent.");
+						switch (winningLvl1vs2Answer){
 							case "S":
 								alert("You will become stronger!");
 								(wonToNextRound());
@@ -50,70 +52,183 @@ function choiceAfterWinningLvl1v2(){
 								break;
 							default:
 								alert ("Either write S or W");
-								(choiceAfterWinningLvl1v2());
+								(choiceAfterWinningLvl1vs2());
 								break;
 							}
 						}
-// function rollLvl2v1(){
-
-// }
-// function rollLvl2v2(){
-
-// }
-// function rollLvl2v3(){
-
-// }
-// function rollLvl2v4(){
-
-// }
-// function rollLvl2v5(){
-
-// }
-// function rollLvl3v1(){
-
-// }
-// function rollLvl3v2(){
-
-// }
-// function rollLvl3v3(){
-
-// }
-// function rollLvl3v4(){
-
-// }
-// function rollLvl3v5(){
-
-// }
-// function rollLvl4v1(){
-
-// }
-// function rollLvl4v2(){
-
-// }
-// function rollLvl4v3(){
-
-// }
-// function rollLvl4v4(){
-
-// }
-// function rollLvl4v5(){
-
-// }
-// function rollLvl5v1(){
-
-// }
-// function rollLvl5v2(){
-
-// }
-// function rollLvl5v3(){
-
-// }
-// function rollLvl5v4(){
-
-// }
-// function rollLvl5v5(){
-
-function rollLvl1(){ 
+function roundLvl1vs3(){
+	let yourLvl1Roll= rollLvl1();
+	let opLvl3Roll = rollLvl3();
+		let win1vs3Roll=true; {
+			alert ("Your opponent is even stronger now, good luck!")
+				if (yourLvl1Roll < opLvl3Roll){
+					win1vs3Roll=false;{
+						alert("You've been defeated!");{
+							roundLvl1vs4()
+						}
+					}
+				}
+				else { choiceAfterWinningLvl1vs3();
+				}
+			}
+		}
+function choiceAfterWinningLvl1vs3(){
+	let winninglvl1vs3Answer = prompt("You're on to the next level!","Type S to strengthen yourself or W to weaken your opponent.");
+		switch (winninglvl1vs3Answer){
+			case "S":
+				alert("You will become stronger!");
+				(wonToNextRound());
+				break;
+			case "W":
+				alert("The opponent shall be weakened!");
+				break;
+			default:
+				alert ("Either write S or W");
+				(choiceAfterWinningLv1vs3);
+				break;
+		}
+	}
+function roundLvl1vs4(){
+	let yourLvl1Roll=rollLvl1();
+	let opLvl4Roll= rollLvl4();
+		let win1vs4Roll= true; {
+			alert ("Your opponent is even stronger, good luck!")
+				if (yourLvl1Roll < opLvl4Roll){
+					win1vs4Roll=false;{
+						alert ("You've been defeated!");{
+							roundLvl1vs5()
+						}
+					}
+				}
+				else { choiceAfterWinningLvl1vs4();
+							}
+			}	
+		}
+function choiceAfterWinningLvl1vs4(){
+	let winningLvl1vs4Answer = prompt("You're on to the next level!", "Type S to strengthen yourself or W to weaken your opponent.");
+						switch (winningLvl1vs4Answer){
+							case "S":
+								alert("You will become stronger!");
+								(wonToNextRound());
+								break;
+							case "W":
+								alert("The opponent shall be weakened!");
+								(roundLvl1vs3());
+								break;
+							default:
+								alert ("Either write S or W");
+								(choiceAfterWinningLvl1vs4());
+								break;
+							}
+						}
+function roundLvl1vs5(){
+	let yourLvl1Roll=rollLvl1();
+	let opLvl5Roll= rollLvl5();
+		let win1vs5Roll= true; {
+			alert ("Your opponent is only stlightly stronger, prepare yourself!")
+				if (yourLvl1Roll < opLvl5Roll){
+					win1vs5Roll=false;{
+						alert ("You've been defeated!");{
+							lostToNextRound()
+						}
+					}
+				}
+				else { choiceAfterWinningLvl1vs5();
+							}
+			}	
+		}
+function choiceAfterWinningLvl1vs5(){
+	let winningLvl1vs5Answer = prompt("You're on to the next level!", "Type S to strengthen yourself or W to weaken your opponent.");
+						switch (winningLvl1vs5Answer){
+							case "S":
+								alert("You will become stronger!");
+								(wonToNextRound());
+								break;
+							case "W":
+								alert("The opponent shall be weakened!");
+								(roundLvl1vs4());
+								break;
+							default:
+								alert ("Either write S or W");
+								(choiceAfterWinningLvl1vs5());
+								break;
+							}
+						}
+function roundLvl2vs1(){
+	let yourLvl2Roll=rollLvl2();
+	let opLvl1Roll=rollLvl1();
+		let win2vs1Roll=true;{
+			alert ("You are stronger now! Stay ahead while you can!")
+				if (yourLvl2Roll<opLvl1Roll){
+					win2vs1Roll=false;{
+						alert("You've been defeated!");{
+							decidingCompWin2vs1()
+						}
+					}
+				}
+				else alert("You have become victorious!");{
+					wonToNextRound()
+				}
+		}
+	}
+function decidingCompWin2vs1(){
+	let compWinningAnswer2vs1=(Math.floor(Math.random()*2)+1);
+		if (compWinningAnswer=1){
+			alert("Your opponent has chosen to weaken you!")
+			(roundLvl1vs1())
+		}
+		else {
+			alert("Your opponent has chosen to become stronger!")
+			(roundLvl2vs2())
+		}
+	return compWinningAnswer2v1
+	}
+function roundLvl2vs2(){
+	let yourLvl2Roll= rollLvl2();
+	let opLvl2Roll= rollLvl2();
+		let win2vs2Roll=true;{
+			alert ("You are equal once again! Show your true power.")
+				if (yourLvl2Roll<opLvl2Roll){
+					win2vs2Roll=false;{
+						alert("You've been defeated!");{
+							decidingCompWin2vs2()
+						}
+					}
+				}
+				else {choiceAfterWinning2v2()
+				}
+		}
+	}
+function decidingCompWin2vs2(){
+	let compWinningAnswer2vs2=(Math.floor(Math.random()*2)+1);
+		if (compWinningAnswer2vs2=1){
+			alert("Your opponent has chosen to weaken you!")
+			(roundLvl1vs2())
+		}
+		else{
+			alert("Your opponent has chosen to become stronger!")
+			(roundLvl2vs3())
+		}
+	return compWinningAnswer2v2
+	}
+function choiceAfterWinningLvl2vs2(){
+	let winninglvl2vs2Answer = prompt("You're on to the next level!", "Type S to strengthen yourself or W to weaken your opponent.");
+						switch (winningLvl2vs2Answer){
+							case "S":
+								alert("You will become stronger!");
+								(wonToNextRound());
+								break;
+							case "W":
+								alert("The opponent shall be weakened!");
+								(roundLvl2vs1());
+								break;
+							default:
+								alert ("Either write S or W");
+								(choiceAfterWinningLvl2vs2());
+								break;
+							}
+	}
+function rollLvl1(){
 	let d4 = (Math.floor(Math.random() * 4) + 1); {
 				if (d4 === 2 || d4 === 3){
 					(d4/=2);
@@ -186,12 +301,12 @@ function rollLvl5(){
 			return d20
 			}
 	}	
-
 function lostToNextRound(){
 	alert("need to make this function");
-		}
+}
 function wonToNextRound(){
-	alert("need to make this function")
-}
-}
+	alert("need to make this function");
+	}
 roundLvl1vs1();
+}
+runEntireGame();
