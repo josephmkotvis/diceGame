@@ -1,11 +1,118 @@
 "Use Strictly"
-function runGame (){
-	let win1v1Roll = rollLvl1vs1(rollLvl1);
-	let d4 = rollLvl1();
-	let d6 = rollLvl2();
-	let d8 = rollLvl3();
-	let d12 = rollLvl4();
-	let d20 = rollLvl5();
+function roundLvl1vs1(){
+	let yourLvl1Roll=rollLvl1();
+	let opLvl1Roll= rollLvl1();
+		let win1v1Roll=true;{
+			if (yourLvl1Roll<opLvl1Roll){ 
+				win1v1Roll = false;{
+					alert("You've been defeated!");{
+						roundLvl1vs2()}
+
+					}
+			} 
+			else if (yourLvl1Roll===opLvl1Roll){
+				win1v1Roll=false;{
+					confirm("Your powers match! Try again?");{
+						roundLvl1vs1()}
+					}
+			}
+			else {
+				alert("You're on to the next Level!");{
+					wonToNextRound()}
+				}
+			}
+function roundLvl1vs2(){
+	let yourLvl1Roll=rollLvl1();
+	let opLvl2Roll = rollLvl2();
+		let win1v2Roll= true; {
+			alert ("Your opponent is only stlightly stronger, prepare yourself!")
+				if (yourLvl1Roll < opLvl2Roll){
+					win1v2Roll=false;{
+						alert ("You've been defeated!");{
+							lostToNextRound()
+						}
+					}
+				}
+				else { choiceAfterWinningLvl1v2();
+							}
+			}	
+		}
+function choiceAfterWinningLvl1v2(){
+	let winningLvl1v2Answer = prompt("You're on to the next level!", "Type S to strengthen yourself or W to weaken your opponent.");
+						switch (winningLvl1v2Answer){
+							case "S":
+								alert("You will become stronger!");
+								(wonToNextRound());
+								break;
+							case "W":
+								alert("The opponent shall be weakened!");
+								(roundLvl1vs1());
+								break;
+							default:
+								alert ("Either write S or W");
+								(choiceAfterWinningLvl1v2());
+								break;
+							}
+						}
+// function rollLvl2v1(){
+
+// }
+// function rollLvl2v2(){
+
+// }
+// function rollLvl2v3(){
+
+// }
+// function rollLvl2v4(){
+
+// }
+// function rollLvl2v5(){
+
+// }
+// function rollLvl3v1(){
+
+// }
+// function rollLvl3v2(){
+
+// }
+// function rollLvl3v3(){
+
+// }
+// function rollLvl3v4(){
+
+// }
+// function rollLvl3v5(){
+
+// }
+// function rollLvl4v1(){
+
+// }
+// function rollLvl4v2(){
+
+// }
+// function rollLvl4v3(){
+
+// }
+// function rollLvl4v4(){
+
+// }
+// function rollLvl4v5(){
+
+// }
+// function rollLvl5v1(){
+
+// }
+// function rollLvl5v2(){
+
+// }
+// function rollLvl5v3(){
+
+// }
+// function rollLvl5v4(){
+
+// }
+// function rollLvl5v5(){
+
 function rollLvl1(){ 
 	let d4 = (Math.floor(Math.random() * 4) + 1); {
 				if (d4 === 2 || d4 === 3){
@@ -15,7 +122,7 @@ function rollLvl1(){
 					(d4*=2);
 				}
 				else{
-					(d4 ===d4)
+					(d4 ===d4);
 				}
 			return d4
 			}
@@ -79,97 +186,12 @@ function rollLvl5(){
 			return d20
 			}
 	}	
-function rollLvl1vs1(d4Roll){
-	let yourLvl1Roll=d4Roll()
-	let opLvl1Roll= d4Roll()
-			let win1v1Roll=true;{
-				if (yourLvl1Roll<opLvl1Roll){ 
-					win1v1Roll = false;{
-						console.log("You've been defeated!")
-					} 
-				}
-				else if (yourLvl1Roll===opLvl1Roll){
-					win1v1Roll=false;{
-						console.log("Your powers match! Try again")
-					}
-				}
-				else {
-					console.log("You're on to the next Level!")
-				}
-			}
-	}
 
-} 	
-// function rollLvl1vs2(){
-
-// }
-// function rollLvl1vs3(){
-
-// }
-// function rollLvl1vs4(){
-
-// }
-// function rollLvl1v5(){
-
-// }
-// function rollLvl2v1(){
-
-// }
-// function rollLvl2v2(){
-
-// }
-// function rollLvl2v3(){
-
-// }
-// function rollLvl2v4(){
-
-// }
-// function rollLvl2v5(){
-
-// }
-// function rollLvl3v1(){
-
-// }
-// function rollLvl3v2(){
-
-// }
-// function rollLvl3v3(){
-
-// }
-// function rollLvl3v4(){
-
-// }
-// function rollLvl3v5(){
-
-// }
-// function rollLvl4v1(){
-
-// }
-// function rollLvl4v2(){
-
-// }
-// function rollLvl4v3(){
-
-// }
-// function rollLvl4v4(){
-
-// }
-// function rollLvl4v5(){
-
-// }
-// function rollLvl5v1(){
-
-// }
-// function rollLvl5v2(){
-
-// }
-// function rollLvl5v3(){
-
-// }
-// function rollLvl5v4(){
-
-// }
-// function rollLvl5v5(){
-
-// }
-runGame();
+function lostToNextRound(){
+	alert("need to make this function");
+		}
+function wonToNextRound(){
+	alert("need to make this function")
+}
+}
+roundLvl1vs1();
