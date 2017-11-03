@@ -312,8 +312,6 @@
 // 	roundLvl1vs1();
 // }
 // runEntireGame();
-function runEntireGame(){
-
 function roundStart(){
 	let playerLvl=1;
 	let playerRoll=0;
@@ -332,11 +330,11 @@ function roundStart(){
 						if (chooseWinningResponse=2 && computerLvl>1){
 							(computerLvl--)
 						}
-						else if (chooseWinningResponse=1){
-							(playerLvl++)
-						}
 						else if (chooseWinningResponse=3){
 							(playerLvl--)
+						}
+						else {
+							(playerLvl++)
 						}	
 					}
 					else if (playerRoll<computerRoll){
@@ -358,7 +356,6 @@ function roundStart(){
 			}
 		makeWinningCondition();
 		}
-	}
 // function changingWinningLevel(playerRoll,computerRoll,computerLvl,playerLvl){
 // 	let winningLevelChange = alert("The fight has begun!");{
 // 					 messageTheResults (playerRoll,computerRoll);
@@ -384,36 +381,26 @@ function makeWinningCondition(playerLvl,playerRoll,computerLvl,computerRoll){
 	}
 	}
 function chooseWinningResponse(computerLvl, playerLvl){
-	let yourWinningResponse;{
-			if (computerLvl>1){ prompt("You're on to the next level!","Type S to strengthen yourself or W to weaken your opponent.");{
-				switch (yourWinningResponse){
-					case "S":
-						alert("You will become stronger!");
-						(yourWinningResponse=1);
-						break;
-					case "W":
-						alert("The opponent shall be weakened!");
-						(yourWinningResponse=2);
-						break;
-					default:
-						if (playerLvl>1){
-							alert ("Due to your inability to read, you have been weakened");
-							(yourWinningResponse=3)
-						}
-						else {
-							alert("With your lack of reading, you brawns must be stronger than your brains, Strength+");
-							(yourWinningResponse=1)
-						}
-						
-					}
-				}
-			}	
-			else { alert("You have become stronger!");
+	let yourWinningResponse= alert("You're on to the next level!")
+		if (computerLvl>1){
+			prompt("Type S to strengthen yourself or W to weaken your opponent.");
+				if (yourWinningResponse="S"){
+					alert("You will become stronger!");
 					(yourWinningResponse=1);
-			}
+				}
+				else if (yourWinningResponse="W"){
+					alert("The opponent shall be weakened!");
+					(yourWinningResponse=2);
+				}
+				else { alert ("Due to your inability to read, you have been weakened");
+					 (yourWinningResponse=3);
+				}
+		}
+		else { alert ("You will become stronger!");
+				(yourWritingResponse=1);
 		}
 	return yourWinningResponse
-	}
+	}	
 // function changingLoosingLevel(playerRoll,computerRoll,computerLvl,playerLvl){
 // 		let loosingLevelChange = alert("The fight has begun!");{
 // 					messageTheResults(playerRoll,computerRoll);
@@ -535,17 +522,5 @@ function messageBaseOnLvls(playerLvl,computerLvl){
 	}
 	return lvlAlert
 	}
-	let yourWinningResponse=chooseWinningResponse();
-	let computerWinningResponse= calculateWinningComputerResponse();
-	let roundsOfGame=roundStart (yourWinningResponse,computerWinningresponse);
-	// let winningLevelChange=changingWinningLevel(roundsOfGame);
-	let winningCondition=makeWinningCondition(roundsOfGame);
-	// let loosingLevelChange=changingLoosingLevel(roundsOf)
-	let playerRoundMessage= messageTheResults(roundsOfGame);
-	let playerDieSize= calculatePlayerLvlToDie(roundsOfGame);
-	let playerDieRoll= calculatePlayerDieNumber(roundsOfGame);
-	let computerDieSize= calculateComputerLvlToDie(roundsOfGame);
-	let computerDieRoll= calculateComputerDieNumber(roundsOfGame);
-	let lvlAlert=messageBaseOnLvls(roundsOfGame);
-	}
-runEntireGame();
+}
+roundStart();
