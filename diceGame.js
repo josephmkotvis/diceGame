@@ -1,4 +1,4 @@
-// "Use Strictly"
+"Use Strict"
 
 // function roundLvl1vs1(){
 // 	let yourLvl1Roll=rollLvl1();
@@ -314,9 +314,7 @@
 // runEntireGame();
 function roundStart(){
 	let playerLvl=1;
-	let playerRoll=0;
 	let computerLvl=1;
-	let computerRoll=0;
 	let roundsOfGame= alert("Ready to see if you can do the impossible!? Test your luck and see if you can win")
 		let winGame = false;
 			while (!winGame){
@@ -326,30 +324,28 @@ function roundStart(){
 								messageTheResults(playerRoll,computerRoll);
 								// changingWinningLevel(playerRoll,computerRoll,computerLvl,playerLvl);
 								// changingWinningLevel;
-								chooseWinningResponse (computerLvl, playerLvl);{
-									if (chooseWinningResponse===2 && computerLvl>1){
+								chooseWinningResponse (computerLvl, playerLvl);
+									if (yourWinningResponse===2 && computerLvl>1){
 										(computerLvl--);
 									}
-									else if (chooseWinningResponse===3){
+									else if (yourWinningResponse===3){
 										(playerLvl--);
 									}
 									else {
 										(playerLvl++);
 									}
-								}	
 					}	
 					else if (playerRoll<computerRoll){
 								messageTheResults(playerRoll,computerRoll);
 						// changingLoosingLevel(playerRoll,computerRoll,computerLvl,playerLvl);
 						// changingLoosingLevel;
-								calculateWinningComputerResponse(computerLvl,playerLvl);{
-									if (calculateWinningComputerResponse===3){
+								calculateWinningComputerResponse(computerLvl,playerLvl);
+									if (computerWinningResponse===1){
 										(computerLvl++);
 									}
-									else if (calculateWinningComputerResponse===2){
+									else if (computerWinningResponse===2){
 										(playerLvl--);
 									}
-								}
 					}
 					messageBaseOnLvls(playerLvl,computerLvl);
 					winGame=makeWinningCondition(playerLvl,playerRoll,computerLvl,computerRoll);
@@ -384,54 +380,58 @@ function makeWinningCondition(playerLvl,playerRoll,computerLvl,computerRoll){
 	}
 function chooseWinningResponse(computerLvl, playerLvl){
 			let yourWinningResponse= prompt("Type S to strengthen yourself or W to weaken your opponent.");
-				switch (yourWinningResponse){
-					case "S":
-						alert("You have gained more strength to destroy the weak!");
-						(yourWinningResponse === 1);
-						break;
-					case "W":
-						if (computerLvl === 1){ alert("Your opponent can't be weakened anymore, you will continue to gain");
-								(yourWinningResponse === 1);
+				if (yourWinningResponse === "S"){
+					(let yourWinningResponse === 1){
+					alert("You will become stronger!");
+					}
+					
+				}
+				else if (yourWinningResponse="W"){
+						if (computerLvl>1){
+							(let yourWinningResponse === 2){
+							alert("The opponent shall be weakened!");
+							}
 						}
 						else {
-							alert("The opponent shall be weakened!");
-							(yourWinningResponse === 2);
-						}
-						break;
-					default:
-						if (playerLvl <2){
-							alert("Due to your inability to read, you have been weakened");
-							(yourWinningResponse === 1);
-						}
-						else { alert("Your lack of reading shows that you have more brawns than brains. Strength+");
-							(yourWinningResponse === 1);
+							(let yourWinningResponse === 1){
+							alert ("Your opponent can't be weakened anymore, you will continue to gain strength instead.");
+							}
 						}
 				}
+				else if (playerLvl>1){
+					(let yourWinningResponse === 1){
+					 alert ("Due to your inability to read, you have been weakened");
+					}
+				}
+				else {
+					(let yourWinningResponse === 1){
+					alert ("Your lack of reading shows that you have more brawns than brains. Strength+");				
+					}
+				}
 			return yourWinningResponse
-			}
-
-
-			// 	if (yourWinningResponse === "S"){
-			// 		alert("You will become stronger!");
-			// 		(yourWinningResponse === 1);
-			// 	}
-			// 	else if (yourWinningResponse="W"){
-			// 			if (computerLvl>1){
-			// 				alert("The opponent shall be weakened!");
-			// 				(yourWinningResponse === 2);
+			}	
+			// 	switch (yourWinningResponse){
+			// 		case "S":
+			// 			alert("You have gained more strength to destroy the weak!");
+			// 			let yourWinningResponse === 1;
+			// 			break;
+			// 		case "W":
+			// 			if (computerLvl === 1){ alert("Your opponent can't be weakened anymore, you will continue to gain");
+			// 					let yourWinningResponse=== 1;
 			// 			}
 			// 			else {
-			// 				alert ("Your opponent can't be weakened anymore, you will continue to gain strength instead.");
-			// 				(yourWinningResponse === 1);
+			// 				alert("The opponent shall be weakened!");
+			// 				let yourWinningResponse === 2;
 			// 			}
-			// 	}
-			// 	else if (playerLvl>1){
-			// 		 alert ("Due to your inability to read, you have been weakened");
-			// 		 (yourWinningResponse === 3);
-			// 	}
-			// 	else {
-			// 		alert ("Your lack of reading shows that you have more brawns than brains. Strength+");
-			// 		(yourWinningResponse === 1);
+			// 			break;
+			// 		default:
+			// 			if (playerLvl === 1){
+			// 				alert("Due to your inability to read, you have been weakened");
+			// 				let yourWinningResponse === 3;
+			// 			}
+			// 			else { alert("Your lack of reading shows that you have more brawns than brains. Strength+");
+			// 				let yourWinningResponse === 1;
+			// 			}
 			// 	}
 			// return yourWinningResponse
 			// }	
@@ -450,17 +450,36 @@ function chooseWinningResponse(computerLvl, playerLvl){
 // 				}
 function calculateWinningComputerResponse(playerLvl){
 		let computerWinningResponse=(Math.floor(Math.random()*2)+1);
-			if (computerWinningResponse === 1 && playerLvl>1){
-				alert("Your opponent has overpowered you and has chosen to weaken you!");
-				(computerWinningResponse === 2);
-				return computerWinningResponse
-			}
-			else {
+			if (computerWinningResponse === 1){
 				alert("Your opponent is gaining more strength with this victory!");
-				(computerWinningResponse === 3);
-				return computerWinningResponse
+				}
 			}
+			else if (computerWinningResponse === 2 && playerLvl===1){
+				(let computerWinningResponse === 1){
+				alert("Your opponent feels mercy for you and will just gain strength");
+				}
+			}
+			else {alert("Your opponent has overpowered you and has chosen to weaken you!")}
+			return computerWinningResponse
 		}
+		// 	switch (computerWinningResponse){
+		// 			case 1:
+		// 				alert("Your opponent is gaining more strength with this victory!");
+		// 				let computerWinningResponse === 1;
+		// 				break;
+		// 			case 2:
+		// 				if (playerLvl === 1){
+		// 					alert("Your opponent feels mercy for you and will just gain strength");
+		// 					let computerWinningResponse === 1;
+		// 				}
+		// 				else {
+		// 					alert("Your opponent has overpowered you and has chosen to weaken you!");
+		// 					let computerWinningResponse === 2;
+		// 				}
+		// 				break;
+		// 	}
+		// 	return computerWinningResponse
+		// }
 function messageTheResults(playerRoll,computerRoll){
 	let playerRoundMessage;{
 		if (playerRoll === computerRoll){
