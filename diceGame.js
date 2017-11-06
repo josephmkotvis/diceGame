@@ -29,7 +29,7 @@ function setPlayerAndComputerLevels(){
 function makeWinningCondition(playerAndComputerLevels,playerRoll,computerRoll){
 	let winningCondition = false;
 		if (playerAndComputerLevels[0] === 5 && playerRoll > computerRoll){
-			alert("Congradulations! You have become victorious! GG!");
+			alert("Congratulations! You have become victorious! GG!");
 			winningCondition = true;
 		}
 		else if (playerAndComputerLevels[1] === 5 && computerRoll > playerRoll){
@@ -46,7 +46,7 @@ function chooseWinningResponse(playerAndComputerLevels){
 							playerAndComputerLevels[0]++
 							return playerAndComputerLevels
 						case "W":
-							if (computerLvl === 1){ alert("Your opponent can't be weakened anymore, you will continue to gain");
+							if (playerAndComputerLevels[1] === 1){ alert("Your opponent can't be weakened anymore, you will continue to gain.");
 									playerAndComputerLevels[1]--
 									return playerAndComputerLevels
 							}
@@ -57,7 +57,7 @@ function chooseWinningResponse(playerAndComputerLevels){
 							}
 						default:
 							if (playerAndComputerLevels[0]>1){
-								alert("Due to your inability to read, you have been weakened");
+								alert("Due to your inability to read, you have been weakened.");
 								playerAndComputerLevels[0]--
 								return playerAndComputerLevels
 							}
@@ -76,7 +76,7 @@ function calculateWinningComputerResponse(playerAndComputerLevels){
 				return playerAndComputerLevels
 			}
 			else if (computerWinningResponse === 2 && playerAndComputerLevels[0]===1){
-				alert("Your opponent feels mercy for you and will just gain strength");
+				alert("Your opponent feels mercy for you and will just gain strength.");
 				playerAndComputerLevels[1]++
 				return playerAndComputerLevels
 			}
@@ -89,13 +89,13 @@ function calculateWinningComputerResponse(playerAndComputerLevels){
 function messageTheResults(playerRoll,computerRoll){
 	let playerRoundMessage;{
 		if (playerRoll === computerRoll){
-			alert("Your attacks cancelled each other! Try agian.");
+			alert("Your strength was equal! Try agian.");
 		}
 		else if (playerRoll>computerRoll){
-			alert("Your attacks have bested your opponent!");
+			alert("You have overpowered your opponent!");
 		}
 		else if (playerRoll<computerRoll){
-			alert("Your opponent's attacks were too powerful and defeated you");
+			alert("Your opponent was too powerful and defeated you.");
 		}
 		return playerRoundMessage
 	}
@@ -184,4 +184,3 @@ function messageBaseOnLvls(playerAndComputerLevels){
 		return lvlMessage
 	}
 }
-runGame();
